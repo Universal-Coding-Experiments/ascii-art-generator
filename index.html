@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>ASCII Art Generator - Gradient Colorizer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="wrap" role="main" aria-labelledby="title">
+        <header>
+            <h1 id="title">ASCII Art Generator</h1>
+            <div class="controls" aria-hidden="false"></div>
+        </header>
+
+        <div class="ascii-box" id="asciiBox" aria-live="polite">
+            <pre id="ascii" class="ascii">Type or choose an image to see ASCII output</pre>
+        </div>
+
+        <aside class="settings" aria-label="Settings">
+            <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:10px;margin-top:8px">
+                <input id="textInput" class="field" type="text" placeholder="Type text or short phrase"
+                    value="Hello World" aria-label="Text input" />
+                <select id="preset" class="select-light" aria-label="Style preset">
+                    <option value="classic">Classic</option>
+                    <option value="retro">Retro</option>
+                    <option value="neon">Neon</option>
+                    <option value="glitch">Glitch</option>
+                </select>
+                <input id="imageUpload" type="file" accept="image/*" class="input-file"
+                    aria-label="Upload image below output" />
+            </div>
+
+            <div>
+                <label for="fontSize">Font size</label>
+                <input id="fontSize" type="range" min="8" max="20" value="12" aria-label="Font size" />
+            </div>
+
+            <div>
+                <label for="density">Sampling density</label>
+                <input id="density" type="range" min="4" max="18" value="8" aria-label="Sampling density" />
+            </div>
+
+            <div>
+                <label for="randomness">Randomness</label>
+                <input id="randomness" type="range" min="0" max="1" step="0.05" value="0.25" aria-label="Randomness" />
+            </div>
+
+            <div>
+                <label for="gradientRandom">Gradient randomness</label>
+                <input id="gradientRandom" type="range" min="0" max="100" value="50" aria-label="Gradient randomness" />
+                <div class="muted" style="margin-top:6px">Move the slider to regenerate random gradient colors (live).
+                </div>
+            </div>
+
+            <div class="muted">Presets change character sets: Classic, Retro, Neon, Glitch. Output updates live.</div>
+
+            <div class="actions-below">
+                <button id="copy" class="btn secondary">Copy</button>
+                <button id="download" class="btn secondary">Download .txt</button>
+                <button id="exportPng" class="btn secondary">Export PNG (high quality)</button>
+            </div>
+
+        </aside>
+
+        <footer>Made with HTML, CSS, and JavaScript — gradient colorizer and high‑quality PNG export</footer>
+    </div>
+
+    <canvas id="sampleCanvas" style="display:none" aria-hidden="true"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
